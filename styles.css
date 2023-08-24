@@ -2,21 +2,29 @@
   background: #ffffff;
   padding: 20px;
   border-radius: 15px;
+  overflow: hidden;
 }
 
-.transaction-heading{
+.transaction-heading {
   margin-bottom: 20px;
 }
 
 .transaction-heading h2 {
   font-weight: 500;
   margin-bottom: 5px;
+  font-size: 20px;
 }
-
 .transaction-heading p {
   color: var(--text-color);
+  font-size: 14px;
 }
 
+.transaction-list .table-Head {
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
 .transaction-table {
   width: 100%;
   border-collapse: collapse;
@@ -24,18 +32,164 @@
 
 .transaction-table thead tr th {
   background-color: #f4f4f4e2;
+  font-size: 13px;
+  font-weight: 600;
 }
-
-.transaction-table thead tr th:first-child{
-  border-radius: 10px 0px 0px 10px;
-}
-
-.transaction-table thead tr th:last-child{
-  border-radius: 0px 10px 10px 0px;
-}
-
-.transaction-table th,
-.transaction-table td {
+.transaction-table thead th,
+.transaction-table tbody td {
   text-align: start;
-  padding: 20px 10px;
+  padding: 20px;
+  border-bottom: 1px solid #d3d3d3;
+  white-space: nowrap;
+}
+.transaction-table tbody td h4 {
+  font-size: 12px;
+  color: #000;
+  font-weight: 600;
+}
+.transaction-table tbody td {
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+.transaction-table tbody td a {
+  color: var(--blue-color);
+  cursor: pointer;
+}
+.transaction-table tbody td a i {
+  color: var(--blue-color);
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.pagination-Head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+.pagination-Head p {
+  color: var(--text-color);
+  font-size: 12px;
+}
+.pagination-Head .pagination {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  list-style: none;
+}
+.pagination-Head .pagination li {
+  width: 26px;
+  height: 26px;
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
+  font-size: 12px;
+  color: var(--text-color);
+  cursor: pointer;
+}
+.pagination-Head .pagination .right-icon i{
+color: var(--blue-color);
+}
+.pagination-Head .pagination li:first-child,
+.pagination-Head .pagination li:last-child {
+  border: none;
+  font-size: 18px;
+}
+.pagination-Head .pagination li:first-child:hover i,
+.pagination-Head .pagination li:last-child:hover i {
+  color: var(--blue-color);
+}
+.pagination-Head .pagination li.active {
+  background: var(--blue-color);
+  color: #fff;
+}
+.pagination-Head .pagination li:hover {
+  background: var(--blue-color);
+  color: #fff;
+}
+.pagination-Head .pagination li:first-child:hover,
+.pagination-Head .pagination li:last-child:hover {
+  color: var(--blue-color);
+  background: #fff;
+}
+@media (min-width: 768px) {
+  .transaction-table tbody tr:last-child td {
+    border-bottom: unset;
+  }
+}
+@media (max-width: 768.98px) {
+  .transaction-list .table-Head {
+    border: none;
+  }
+  .transaction-table thead {
+    display: none;
+  }
+  .transaction-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-bottom: 20px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+  }
+
+  .transaction-table tbody td {
+    width: 100%;
+    text-align: end;
+    position: relative;
+  }
+  .transaction-table tbody td::before {
+    position: absolute;
+    left: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+  }
+  .transaction-table tbody td:first-child {
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+  }
+  .transaction-table tbody td:last-child {
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    border-bottom: none;
+  }
+  .transaction-table tbody td:nth-child(1)::before {
+    content: "Project";
+  }
+  .transaction-table tbody td:nth-child(2)::before {
+    content: "ID";
+  }
+  .transaction-table tbody td:nth-child(3)::before {
+    content: "Date";
+  }
+  .transaction-table tbody td:nth-child(4)::before {
+    content: "Transaction Type";
+  }
+  .transaction-table tbody td:nth-child(5)::before {
+    content: "Total Amount";
+  }
+  .transaction-table tbody td:nth-child(6)::before {
+    content: "Currency";
+  }
+  .pagination-Head{
+    margin-top: 20px;
+  }
+}
+
+@media (max-width:576.98px) {
+  .pagination-Head{
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0px;
+  }
+  .pagination-Head p{
+    width: 100%;
+    margin-bottom: 12px;
+  }
 }
